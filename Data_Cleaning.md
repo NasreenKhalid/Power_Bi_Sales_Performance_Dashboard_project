@@ -2,21 +2,21 @@
 ### Orders:
 
 ✅ Remove the exact duplicate.   
-✅ Unit_Price → Whole Number. 
-✅ Keep Quantity = -1 because it represents a return  
-✅ Region → no change. 
-✅ Order_Date → no change. 
+✅ Unit_Price → Whole Number.   
+✅ Keep Quantity = -1 because it represents a return.   
+✅ Region → no change.   
+✅ Order_Date → no change.   
 
-### Customers:  
+### Customers:    
 
-✅ No obvious data-quality issues. 
+✅ No obvious data-quality issues.   
 
-### Products:  
+### Products:    
 
-✅ No obvious data-quality issues. 
+✅ No obvious data-quality issues.   
 
-### Targets:  
+### Targets:    
 
-✅ Month + Region is a composite business key. 
-✅ Sales_Target as Whole Number is appropriate. 
-❌ No artificial ID needed yet. 
+✅ Month + Region is a composite business key.   
+✅ Sales_Target as Whole Number is appropriate.   
+❌ No artificial ID needed yet.   
