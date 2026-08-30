@@ -3,10 +3,10 @@ Phase 1 — Business requirements
 
 Management wants the dashboard to answer:
 
-Executive performance
-What is total revenue?
-How many orders were placed?
-How many units were sold?
+Executive performance. 
+What is total revenue?  
+How many orders were placed?  
+How many units were sold?  
 What is the average order value?
 How is revenue changing over time?
 How are we performing against the sales target?
