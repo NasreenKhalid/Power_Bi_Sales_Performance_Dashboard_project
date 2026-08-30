@@ -1,0 +1,11 @@
+Product_ID,Product_Name,Category,Subcategory
+P01,Laptop,Electronics,Computing
+P02,Phone,Electronics,Mobile
+P03,Tablet,Electronics,Mobile
+P04,Office Chair,Furniture,Office
+P05,Mouse,Accessories,Computer Accessories
+P06,Keyboard,Accessories,Computer Accessories
+P07,Monitor,Electronics,Computing
+P08,Headset,Accessories,Audio
+P09,Webcam,Accessories,Audio
+P10,USB Hub,Accessories,Computer Accessories
