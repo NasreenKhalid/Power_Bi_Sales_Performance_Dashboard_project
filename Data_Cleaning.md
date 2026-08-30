@@ -1,7 +1,7 @@
 
 ### Orders:
 
-✅ Remove the exact duplicate. 
+✅ Remove the exact duplicate.   
 ✅ Unit_Price → Whole Number. 
 ✅ Keep Quantity = -1 because it represents a return  
 ✅ Region → no change. 
