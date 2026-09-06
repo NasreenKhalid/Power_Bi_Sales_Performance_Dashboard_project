@@ -4,8 +4,9 @@
 - One exact duplicate transaction was identified in Orders and removed.
 - Order_Date and Unit_Price were stored as strings and converted to appropriate analytical data types.
 - Negative quantities associated with returned orders were retained because they represent the business transaction rather than erroneous data.
+- Inconsistent values in orders['Region'] column 
 
-Analytical Problem 2 — Sales Performance Analysis
+### Analytical Problem 2 — Sales Performance Analysis
 
 Once the data is trustworthy enough to analyze, investigate Nexa Retail's sales performance.
 
@@ -85,13 +86,67 @@ plt.show()
 
 <img width="1120" height="539" alt="image" src="https://github.com/user-attachments/assets/d2eebbf4-39ec-4e4a-9ebc-358902d89c1d" />
 
-
-
 What is the overall target achievement?
 
 How large is the remaining target shortfall?
 
 
 df_combined['Target_Variance'] = df_combined['total_sales'] - df_combined['total_target']
+
+
+### Analytical Problem 3 — Regional Performance
+
+Management wants to know whether sales performance differs significantly across regions.
+
+Investigate:
+
+Which region generates the most Net Sales?  
+**North**
+
+Which region generates the least?  
+**South**. 
+
+sales_by_region = orders.groupby('Region')['Sales'].sum()
+Region
+East     17075.0
+North    18450.0
+South    12325.0
+West     17625.0
+Name: Sales, dtype: float64
+
+sales_by_region.plot(
+    kind='bar', 
+    color='#1f77b4',       # Clean professional blue
+    edgecolor='black',     # Adds a sharp border to the bars
+    figsize=(8, 5)
+)
+
+# Customize labels and title
+plt.title('Total Sales by Region', fontsize=14, fontweight='bold', pad=15)
+plt.xlabel('Region', fontsize=12)
+plt.ylabel('Sales ($)', fontsize=12)
+plt.xticks(rotation=0)     # Keeps region names horizontal (East, North, etc.) so they are easy to read
+plt.grid(axis='y', linestyle='--', alpha=0.7) # Adds a light horizontal background grid
+
+# Display the plot
+plt.tight_layout()
+plt.show()
+
+<img width="843" height="498" alt="image" src="https://github.com/user-attachments/assets/2a53a026-6c20-4e0b-ae2d-67bb1e993c21" />
+
+
+What proportion of total sales comes from each region?
+Does the strongest region also perform well when considering returns?
+Are there regions whose performance deserves further investigation?
+Deliverable
+
+Create a regional performance analysis and write a short explanation of what management should take away from it.
+I have created a bar graph with a comparison between the sales region-wise, which shows that North is the most sales-making region, whereas the least sale comes from the South region. West and East are in the middle.
+North is driving the volume, while South highlights an area that needs attention and strategy.
+
+
+
+
+
 
 <img width="457" height="258" alt="image" src="https://github.com/user-attachments/assets/0a81e093-746d-401b-ba07-11c94920d2fa" />
