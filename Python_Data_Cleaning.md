@@ -56,5 +56,36 @@ print(f"Sales: ${worst_month['total_sales']:,.2f}").
 
 How consistent is monthly performance?
 How does actual sales performance compare with the company's targets?
+Create a monthly_targets table to check the total target for each month:
+monthly_targets = (targets.groupby(targets['Month'].dt.to_period("M"))['Sales_Target'].sum().reset_index(name="total_target"))
+
+df_combined = pd.merge(monthly_sales, monthly_targets, on='Month', how='inner')
+
+<img width="322" height="234" alt="image" src="https://github.com/user-attachments/assets/5c7aa5ce-7924-4b32-8e62-c7b364c5bdd3" />
+
+df_combined.plot(
+    x='Month', 
+    y=['total_sales', 'total_target'],  
+    kind='bar',                           
+    color=['#2ca02c', '#f72328'],         # Green for sales, red for target
+    figsize=(12, 6),
+    width=0.8                             
+)
+
+plt.title('Monthly Sales vs. Target Comparison', fontsize=14, fontweight='bold')
+plt.ylabel('Amount ($)')
+plt.xlabel('Month')
+plt.xticks(rotation=45)                   
+plt.legend(['Actual Sales', 'Target'])
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+
+plt.tight_layout()                        # Prevents labels from getting cut off
+plt.show()
+
+
+<img width="1120" height="539" alt="image" src="https://github.com/user-attachments/assets/d2eebbf4-39ec-4e4a-9ebc-358902d89c1d" />
+
+
+
 What is the overall target achievement?
 How large is the remaining target shortfall?
