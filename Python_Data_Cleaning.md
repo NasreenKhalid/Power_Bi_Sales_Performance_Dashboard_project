@@ -47,7 +47,6 @@ print(f"Sales: ${top_month['total_sales']:,.2f}").
 Which month had the weakest?       
 min_sales_idx = monthly_sales['total_sales'].idxmin(). 
 
-# Get that row. 
 worst_month = monthly_sales.loc[min_sales_idx]. 
 print(f"Month with least sales: {worst_month['Order_Date']}"). 
 print(f"Sales: ${worst_month['total_sales']:,.2f}"). 
