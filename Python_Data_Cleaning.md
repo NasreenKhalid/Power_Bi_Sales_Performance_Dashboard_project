@@ -36,8 +36,25 @@ monthly_sales.plot(x='Order_Date', y='total_sales', kind='line', marker='o').
 <img width="589" height="477" alt="image" src="https://github.com/user-attachments/assets/0b316a91-5900-46c7-874f-18446bdcce8f" />
 
 
-Which month had the strongest Net Sales?
-Which month had the weakest?
+Which month had the strongest Net Sales?  
+max_sales_idx = monthly_sales['total_sales'].idxmax(). 
+top_month = monthly_sales.loc[max_sales_idx]. 
+print(f"Month with most sales: {top_month['Order_Date']}"). 
+print(f"Sales: ${top_month['total_sales']:,.2f}"). 
+**Month with most sales: 2024-05**. 
+**Sales: $7,700.00**.  
+
+Which month had the weakest?       
+min_sales_idx = monthly_sales['total_sales'].idxmin(). 
+
+# Get that row. 
+worst_month = monthly_sales.loc[min_sales_idx]. 
+print(f"Month with least sales: {worst_month['Order_Date']}"). 
+print(f"Sales: ${worst_month['total_sales']:,.2f}"). 
+**Month with least sales: 2024-04**. 
+**Sales: $2,150.00**. 
+
+
 How consistent is monthly performance?
 How does actual sales performance compare with the company's targets?
 What is the overall target achievement?
