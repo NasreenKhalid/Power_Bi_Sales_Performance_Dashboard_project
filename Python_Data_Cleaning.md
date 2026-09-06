@@ -185,7 +185,116 @@ North is driving the volume, while South highlights an area that needs attention
 
 
 
+### Analytical Problem 4 — Customer Concentration & Returns. 
 
 
+Nexa Retail wants to understand its customer base.  
 
-<img width="457" height="258" alt="image" src="https://github.com/user-attachments/assets/0a81e093-746d-401b-ba07-11c94920d2fa" />
+
+Investigate:  
+
+Which customers generate the most Gross Sales?
+customers_sales = orders.groupby('Customer_ID')['Sales'].sum()
+# Get the customer with the highest sales
+top_customer = customers_sales.idxmax()
+top_sales = customers_sales.max()
+
+print(f"Top Customer: {top_customer}")
+print(f"Total Sales: ${top_sales:,.2f}"). 
+Top Customer: C001
+Total Sales: $4,800.00.  
+# Get top 5 customers
+top_5_customers = customers_sales.nlargest(5)
+print("Top 5 Customers by Sales:")
+print(top_5_customers). 
+Top 5 Customers by Sales:
+Customer_ID
+C001    4800.0
+C031    4000.0
+C003    3200.0
+C002    2000.0
+C012    2000.0
+How concentrated is revenue among the largest customers?
+
+
+What percentage of Gross Sales comes from the top 5 customers?
+
+Highest-grossing customer: C001 → $4,800
+Top 5: C001, C031, C003, C002, C012
+Top 5 Gross Sales: $16,000
+Top 5 contribution: 24.44%  
+
+Are there customers with unusually high returns?
+Does high Gross Sales necessarily correspond to high Net Sales?
+Are there customers whose return behavior deserves attention?
+returns_by_customers = orders[orders['Status'] == 'Returned'].groupby('Customer_ID')['Sales'].sum()
+print("Returns Value by Customers:")
+print(returns_by_customers)
+
+Returns Value by Customers:
+Customer_ID
+C020   -1200.0
+
+Only one customer has a returned order: C020
+Return value: $1,200
+None of the Top 5 customers (C001, C031, C003, C002, C012) had a recorded return.
+
+
+Deliverable
+
+Identify the most commercially important customers and any customer-level risks or patterns you discover.
+
+- Customer concentration: Top 5 customers generated $16,000, or 24.44% of Gross Sales.
+- Returns: Only C020 had a recorded return, totaling $1,200.
+- Top-5 return exposure: 0% of returns came from the Top 5 customers, because none of them had a return.
+- Business interpretation: Revenue is somewhat concentrated among the top customers, but the current return data does not indicate return risk among those highest-value customers.
+
+- P03 and P08 are the joint highest-selling products, each contributing 18.67% of Net Sales, while P10 is the weakest at 1.98%.
+- The product mix is therefore somewhat concentrated around P03 and P08, while P10 contributes very little to overall sales.
+
+
+Final Python Analysis — Completed
+
+Topics covered:
+
+1. Data Quality
+
+Missing values
+Duplicates
+Data types
+Currency formatting
+Negative quantities/returns
+Cleaning decisions
+
+2. Sales Performance
+
+Gross Sales: $65,475
+Returns: $1,200
+Net Sales: $64,275
+Monthly sales trend
+Strongest/weakest months
+Monthly sales vs targets
+
+3. Regional Performance
+
+North: 28.70%
+West: 27.42%
+East: 26.57%
+South: 19.18%
+Returns by region
+
+4. Customer Analysis
+
+Top customer: C001 — $4,800
+Top 5 customers: $16,000
+Top 5 contribution: 24.44%
+Returns by customer
+None of the Top 5 had recorded returns
+
+5. Independent Insight
+
+Product-level sales analysis
+P03 and P08 are joint leaders at $12,000
+P10 is the weakest at $1,275
+
+
