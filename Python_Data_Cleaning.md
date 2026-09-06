@@ -88,4 +88,10 @@ plt.show()
 
 
 What is the overall target achievement?
+
 How large is the remaining target shortfall?
+
+
+df_combined['Target_Variance'] = df_combined['total_sales'] - df_combined['total_target']
+
+<img width="457" height="258" alt="image" src="https://github.com/user-attachments/assets/0a81e093-746d-401b-ba07-11c94920d2fa" />
