@@ -136,7 +136,46 @@ plt.show()
 
 
 What proportion of total sales comes from each region?
-Does the strongest region also perform well when considering returns?
+
+region_sales = pd.Series({
+    'East': 17075.0,
+    'North': 18450.0,
+    'South': 12325.0,
+    'West': 17625.0
+})
+
+# Total net sales
+net_sales = 64275.00
+
+# Calculate percentage share
+region_share = (region_sales / net_sales) * 100
+print(region_share.round(2))
+
+East     26.57
+North    28.70
+South    19.18
+West     27.42
+
+1. Regional share ✅
+
+Your calculation gives:
+
+Region	Net Sales	Share
+North	  $18,450	  28.70%
+West	  $17,625	  27.42%
+East	  $17,075	  26.57%
+South	  $12,325	  19.18%
+
+North, West, and East are actually quite close — all around 26–29%. South is the clear lower-performing region.
+
+Does the strongest region also perform well when considering returns?  
+returns_by_region = orders[orders['Status'] == 'Returned'].groupby('Region')['Sales'].sum()
+print("Returns Value by Region:")
+print(returns_by_region). 
+Returns Value by Region:
+Region
+North   -1200.0. 
+**all recorded returns in this dataset are coming from North**. 
 Are there regions whose performance deserves further investigation?
 Deliverable
 
