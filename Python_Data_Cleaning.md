@@ -24,10 +24,17 @@ print(f"Total Returns: ${returns:,.2f}")
 Net Sales = Gross Sales - (Returns + Discounts + Allowances)
 net_sales = gross_sales - returns
 print(f"Net Sales: ${net_sales:,.2f}")
-**Net Sales: $64,275.00**
+**Net Sales: $64,275.00**. 
 
 
-How does sales performance change over time?
+
+How does sales performance change over time?  
+
+
+monthly_sales = (orders.groupby(orders['Order_Date'].dt.to_period("M"))['Sales'].sum().reset_index(name="total_sales")). 
+monthly_sales.plot(x='Order_Date', y='total_sales', kind='line', marker='o'). 
+<img width="589" height="477" alt="image" src="https://github.com/user-attachments/assets/0b316a91-5900-46c7-874f-18446bdcce8f" />
+
 
 Which month had the strongest Net Sales?
 Which month had the weakest?
